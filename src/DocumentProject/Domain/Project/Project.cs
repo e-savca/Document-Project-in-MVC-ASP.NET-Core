@@ -14,6 +14,7 @@ public class Project : Entity<int>
     /// Reference to the bank with which the project is associated.
     /// </summary>
     public Institute.Institute Institute { get; set; }
+    public int InstituteId { get; set; }
     /// <summary>
     /// Reference to the user who created the project.
     /// </summary>

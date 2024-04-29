@@ -10,16 +10,19 @@ public class Document : Entity<int>
     /// Gets or sets the institution to which the document is attached.
     /// </summary>
     public Institute.Institute Institute { get; set; }
+    public int InstituteId { get; set; }
 
     /// <summary>
     /// Gets or sets the user who uploaded the document.
     /// </summary>
     public User.User Operator { get; set; }
+    public int OperatorId { get; set; }
 
     /// <summary>
     /// Gets or sets the project to which the document is attached (valid only for macrotype = DESIGN).
     /// </summary>
     public Project.Project Project { get; set; }
+    public int ProjectId { get; set; }
 
     /// <summary>
     /// Gets or sets the name of the file, document. Alphanumeric. Maximum 260 characters.
@@ -35,6 +38,7 @@ public class Document : Entity<int>
     /// Gets or sets the document type.
     /// </summary>
     public DocumentType DocumentType { get; set; }
+    public int DocumentTypeId { get; set; }
 
     /// <summary>
     /// Gets or sets the full path where the document is saved.
