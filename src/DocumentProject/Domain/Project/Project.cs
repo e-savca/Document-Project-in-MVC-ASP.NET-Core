@@ -19,6 +19,7 @@ public class Project : Entity<int>
     /// Reference to the user who created the project.
     /// </summary>
     public User.User User { get; set; }
+    public int UserId { get; set; }
     /// <summary>
     /// The date from which the project was started.
     /// </summary>
