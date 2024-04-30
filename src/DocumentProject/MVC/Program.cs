@@ -1,4 +1,14 @@
+using Application.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Get connection string from appsettings.json
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Add DatabaseService to the container
+builder.Services.AddDbContext<IDatabaseService, DatabaseService>(options => options.UseSqlServer(connectionString));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
