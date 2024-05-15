@@ -4,11 +4,6 @@ using Domain.Institute;
 using Domain.Project;
 using Domain.User;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Persistence
@@ -23,10 +18,18 @@ namespace Persistence
         public DbSet<Institute> Institutes { get; set; } = null!;
         public DbSet<Project> Projects { get; set; } = null!;
 
+
         public DatabaseService(DbContextOptions<DatabaseService> options)
             : base(options)
         {
             Database.EnsureCreated();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(DatabaseService).Assembly);
+
+            base.OnModelCreating(modelBuilder);
         }
 
         public void Save()
